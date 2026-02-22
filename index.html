@@ -8,28 +8,20 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --sage: #e8efe9;
-      --sage-dark: #d0ddd2;
-      --teal: #2a7a74;
-      --teal-light: #4ecdc4;
-      --teal-btn: #3a8a84;
-      --white: #ffffff;
-      --text: #2c3e35;
-      --muted: #6b7c74;
-      --border: #c5d5c8;
+      --sage: #e8efe9; --teal: #2a7a74; --teal-light: #4ecdc4;
+      --teal-btn: #3a8a84; --white: #ffffff; --text: #2c3e35;
+      --muted: #6b7c74; --border: #c5d5c8;
     }
     html { scroll-behavior: smooth; }
     body { background: var(--sage); color: var(--text); font-family: 'Lato', sans-serif; font-weight: 300; overflow-x: hidden; }
 
-    /* NAV */
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1rem 2.5rem; background: rgba(232,239,233,0.97); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
     .nav-logo img { height: 48px; width: auto; }
-    .nav-cta { font-family: 'Lato', sans-serif; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--white); background: var(--teal-btn); padding: 0.7rem 1.6rem; text-decoration: none; border-radius: 2px; transition: all 0.3s; }
+    .nav-cta { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--white); background: var(--teal-btn); padding: 0.7rem 1.6rem; text-decoration: none; border-radius: 2px; transition: all 0.3s; }
     .nav-cta:hover { background: var(--teal); }
 
-    /* HERO */
     .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 8rem 2rem 5rem; position: relative; overflow: hidden; background: url('hero-bg.png') center center/cover no-repeat; }
-    .hero::before { content: ''; position: absolute; inset: 0; background: rgba(30, 55, 40, 0.6); }
+    .hero::before { content: ''; position: absolute; inset: 0; background: rgba(30,55,40,0.6); }
     .hero > * { position: relative; z-index: 1; }
     .hero-eyebrow { font-size: 0.8rem; font-weight: 400; letter-spacing: 0.25em; color: var(--teal-light); text-transform: uppercase; margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 1s 0.2s forwards; }
     .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 7vw, 5.5rem); font-weight: 400; line-height: 1.1; color: #ffffff; margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 1s 0.4s forwards; }
@@ -38,14 +30,12 @@
     .hero-btn { display: inline-block; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); background: var(--teal-btn); padding: 1rem 2.5rem; text-decoration: none; border-radius: 2px; transition: all 0.3s; opacity: 0; animation: fadeUp 1s 0.8s forwards; }
     .hero-btn:hover { background: var(--teal); transform: translateY(-2px); }
 
-    /* INTRO */
     .intro { background: var(--white); padding: 6rem 2rem; }
     .intro-inner { max-width: 800px; margin: 0 auto; text-align: center; }
     .section-tag { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.2em; color: var(--teal-btn); text-transform: uppercase; margin-bottom: 1rem; }
     .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 400; color: var(--teal); line-height: 1.2; margin-bottom: 1.5rem; }
     .intro p { font-size: 1rem; line-height: 1.9; color: var(--muted); max-width: 620px; margin: 0 auto; }
 
-    /* SERVICES */
     .services { padding: 6rem 2rem; background: var(--sage); }
     .services-inner { max-width: 1100px; margin: 0 auto; }
     .services-inner .section-tag, .services-inner .section-title { text-align: center; }
@@ -57,7 +47,6 @@
     .service-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.8; margin-bottom: 1.5rem; }
     .service-price { font-size: 0.8rem; font-weight: 700; color: var(--teal-btn); letter-spacing: 0.05em; }
 
-    /* TESTIMONIALS */
     .testimonials { background: var(--teal); padding: 6rem 2rem; }
     .testimonials .section-tag { color: var(--teal-light); text-align: center; }
     .testimonials .section-title { color: var(--white); text-align: center; margin-bottom: 3rem; }
@@ -66,7 +55,6 @@
     .t-card p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1rem; color: rgba(255,255,255,0.9); line-height: 1.8; margin-bottom: 1.2rem; }
     .t-card .author { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; color: var(--teal-light); text-transform: uppercase; }
 
-    /* FORM */
     .form-section { padding: 6rem 2rem; background: var(--white); }
     .form-inner { max-width: 680px; margin: 0 auto; }
     .form-inner .section-title { margin-bottom: 0.75rem; }
@@ -79,17 +67,20 @@
     input:focus, select:focus, textarea:focus { border-color: var(--teal-btn); background: var(--white); }
     select option { background: var(--white); }
     textarea { resize: vertical; min-height: 100px; }
+
+    .consent-row { display: flex; align-items: flex-start; gap: 0.75rem; }
+    .consent-row input[type="checkbox"] { width: 18px; height: 18px; min-width: 18px; margin-top: 2px; accent-color: var(--teal-btn); cursor: pointer; border: none; padding: 0; background: none; }
+    .consent-row label { font-size: 0.8rem; letter-spacing: 0; text-transform: none; color: var(--muted); font-weight: 300; line-height: 1.6; cursor: pointer; }
+    .consent-row label a { color: var(--teal-btn); }
+
     .submit-btn { font-family: 'Lato', sans-serif; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); background: var(--teal-btn); border: none; padding: 1rem 2.5rem; cursor: pointer; border-radius: 2px; transition: all 0.3s; align-self: flex-start; margin-top: 0.5rem; }
     .submit-btn:hover { background: var(--teal); transform: translateY(-2px); }
-    .consent-row { display: flex; align-items: flex-start; gap: 0.75rem; margin-top: 0.5rem; }
-    .consent-row input[type="checkbox"] { width: 18px; height: 18px; min-width: 18px; margin-top: 2px; accent-color: var(--teal-btn); cursor: pointer; border: none; padding: 0; }
-    .consent-row label { font-size: 0.8rem; letter-spacing: 0; text-transform: none; color: var(--muted); font-family: 'Lato', sans-serif; font-weight: 300; line-height: 1.6; cursor: pointer; }
-    .consent-row label a { color: var(--teal-btn); }
-    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 999; align-items: center; justify-content: center; padding: 1.5rem; }
+
+    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 999; align-items: center; justify-content: center; padding: 1.5rem; }
     .modal-overlay.active { display: flex; }
     .modal { background: var(--white); border-radius: 4px; border-top: 4px solid var(--teal-btn); padding: 2.5rem; max-width: 480px; width: 100%; text-align: center; }
-    .modal h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--teal); margin-bottom: 1rem; }
-    .modal p { font-size: 0.88rem; color: var(--muted); line-height: 1.7; margin-bottom: 0.75rem; }
+    .modal h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--teal); margin-bottom: 1rem; }
+    .modal p { font-size: 0.88rem; color: var(--muted); line-height: 1.75; margin-bottom: 0.75rem; }
     .modal p a { color: var(--teal-btn); }
     .modal-actions { display: flex; gap: 1rem; justify-content: center; margin-top: 1.5rem; flex-wrap: wrap; }
     .modal-confirm { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); background: var(--teal-btn); border: none; padding: 0.85rem 1.8rem; border-radius: 2px; cursor: pointer; transition: all 0.3s; }
@@ -97,7 +88,6 @@
     .modal-cancel { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); background: transparent; border: 1px solid var(--border); padding: 0.85rem 1.8rem; border-radius: 2px; cursor: pointer; transition: all 0.3s; }
     .modal-cancel:hover { border-color: var(--teal); color: var(--teal); }
 
-    /* FOOTER */
     footer { background: var(--text); padding: 2.5rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
     .footer-logo img { height: 40px; width: auto; opacity: 0.8; }
     .footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.5); }
@@ -178,7 +168,7 @@
       <div class="section-tag">Begin Here</div>
       <h2 class="section-title">Your Healing Journey Starts With a Conversation</h2>
       <p class="form-intro">Fill out the form below and Jonathan will personally reach out to schedule a free 15–20 minute discovery call. No pressure — just a conversation about what's calling you forward.</p>
-      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/success.html">
+      <form id="main-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/success.html">
         <input type="hidden" name="form-name" value="contact" />
         <input type="hidden" name="bot-field" />
         <div class="form-row">
@@ -202,7 +192,7 @@
               <option value="" disabled selected>Select a service</option>
               <option value="kambo">Kambo Ceremony</option>
               <option value="breathwork">Breathwork Journey</option>
-              <option value="coaching">Integration & Coaching</option>
+              <option value="coaching">Integration &amp; Coaching</option>
               <option value="unsure">Not sure yet — open to guidance</option>
             </select>
           </div>
@@ -212,14 +202,68 @@
           <textarea id="message" name="message" placeholder="Share as much or as little as you'd like..."></textarea>
         </div>
         <div class="consent-row">
-          <input type="checkbox" id="sms-consent" name="sms_consent" required />
+          <input type="checkbox" id="sms-consent" name="sms_consent" value="yes" required />
           <label for="sms-consent">I agree to receive SMS messages from Jonathan Papia Holistic Health regarding my inquiry and appointment scheduling. Message and data rates may apply. Reply STOP to opt out. View our <a href="/privacy-policy.html" target="_blank">Privacy Policy</a> and <a href="/terms.html" target="_blank">Terms &amp; Conditions</a>.</label>
         </div>
-        <button type="button" class="submit-btn" onclick="showModal()">Send My Message</button>
+        <button type="button" class="submit-btn" id="open-modal-btn">Send My Message</button>
       </form>
     </div>
   </section>
 
   <footer>
     <div class="footer-logo"><img src="logo.png" alt="Jonathan Papia" /></div>
-    <div class="footer-email"><a href="/cdn-cgi/l/email-protection#22484d4c43564a434c5243524b4355474e4e4c47515162454f434b4e0c414d4f"><span class="__cf_email__" data-cfemail="244e4b4a45504c454a5445544d45534148484a415757644349454d48
+    <div class="footer-email"><a href="mailto:jonathanpapiawellness@gmail.com">jonathanpapiawellness@gmail.com</a></div>
+    <div class="footer-copy">© 2025 Jonathan Papia. All rights reserved.</div>
+  </footer>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="sms-modal">
+    <div class="modal">
+      <h3>One Last Step</h3>
+      <p>By submitting this form you confirm you agree to receive SMS text messages from Jonathan Papia Holistic Health regarding your inquiry and appointment scheduling.</p>
+      <p>Message and data rates may apply. Reply STOP at any time to unsubscribe. Reply HELP for assistance.</p>
+      <p>View our <a href="/privacy-policy.html" target="_blank">Privacy Policy</a> and <a href="/terms.html" target="_blank">Terms &amp; Conditions</a>.</p>
+      <div class="modal-actions">
+        <button class="modal-cancel" id="modal-cancel-btn">Go Back</button>
+        <button class="modal-confirm" id="modal-confirm-btn">I Agree — Submit</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var form = document.getElementById('main-form');
+    var modal = document.getElementById('sms-modal');
+    var openBtn = document.getElementById('open-modal-btn');
+    var cancelBtn = document.getElementById('modal-cancel-btn');
+    var confirmBtn = document.getElementById('modal-confirm-btn');
+    var checkbox = document.getElementById('sms-consent');
+
+    openBtn.addEventListener('click', function() {
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+      if (!checkbox.checked) {
+        checkbox.setCustomValidity('Please agree to receive SMS messages.');
+        form.reportValidity();
+        checkbox.setCustomValidity('');
+        return;
+      }
+      modal.classList.add('active');
+    });
+
+    cancelBtn.addEventListener('click', function() {
+      modal.classList.remove('active');
+    });
+
+    confirmBtn.addEventListener('click', function() {
+      form.submit();
+    });
+
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) modal.classList.remove('active');
+    });
+  </script>
+
+</body>
+</html>
