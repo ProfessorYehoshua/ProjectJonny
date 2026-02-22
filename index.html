@@ -81,6 +81,21 @@
     textarea { resize: vertical; min-height: 100px; }
     .submit-btn { font-family: 'Lato', sans-serif; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); background: var(--teal-btn); border: none; padding: 1rem 2.5rem; cursor: pointer; border-radius: 2px; transition: all 0.3s; align-self: flex-start; margin-top: 0.5rem; }
     .submit-btn:hover { background: var(--teal); transform: translateY(-2px); }
+    .consent-row { display: flex; align-items: flex-start; gap: 0.75rem; margin-top: 0.5rem; }
+    .consent-row input[type="checkbox"] { width: 18px; height: 18px; min-width: 18px; margin-top: 2px; accent-color: var(--teal-btn); cursor: pointer; border: none; padding: 0; }
+    .consent-row label { font-size: 0.8rem; letter-spacing: 0; text-transform: none; color: var(--muted); font-family: 'Lato', sans-serif; font-weight: 300; line-height: 1.6; cursor: pointer; }
+    .consent-row label a { color: var(--teal-btn); }
+    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 999; align-items: center; justify-content: center; padding: 1.5rem; }
+    .modal-overlay.active { display: flex; }
+    .modal { background: var(--white); border-radius: 4px; border-top: 4px solid var(--teal-btn); padding: 2.5rem; max-width: 480px; width: 100%; text-align: center; }
+    .modal h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--teal); margin-bottom: 1rem; }
+    .modal p { font-size: 0.88rem; color: var(--muted); line-height: 1.7; margin-bottom: 0.75rem; }
+    .modal p a { color: var(--teal-btn); }
+    .modal-actions { display: flex; gap: 1rem; justify-content: center; margin-top: 1.5rem; flex-wrap: wrap; }
+    .modal-confirm { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); background: var(--teal-btn); border: none; padding: 0.85rem 1.8rem; border-radius: 2px; cursor: pointer; transition: all 0.3s; }
+    .modal-confirm:hover { background: var(--teal); }
+    .modal-cancel { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); background: transparent; border: 1px solid var(--border); padding: 0.85rem 1.8rem; border-radius: 2px; cursor: pointer; transition: all 0.3s; }
+    .modal-cancel:hover { border-color: var(--teal); color: var(--teal); }
 
     /* FOOTER */
     footer { background: var(--text); padding: 2.5rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
@@ -196,16 +211,15 @@
           <label for="message">What are you seeking to heal or release?</label>
           <textarea id="message" name="message" placeholder="Share as much or as little as you'd like..."></textarea>
         </div>
-        <button type="submit" class="submit-btn">Send My Message</button>
+        <div class="consent-row">
+          <input type="checkbox" id="sms-consent" name="sms_consent" required />
+          <label for="sms-consent">I agree to receive SMS messages from Jonathan Papia Holistic Health regarding my inquiry and appointment scheduling. Message and data rates may apply. Reply STOP to opt out. View our <a href="/privacy-policy.html" target="_blank">Privacy Policy</a> and <a href="/terms.html" target="_blank">Terms &amp; Conditions</a>.</label>
+        </div>
+        <button type="button" class="submit-btn" onclick="showModal()">Send My Message</button>
       </form>
     </div>
   </section>
 
   <footer>
     <div class="footer-logo"><img src="logo.png" alt="Jonathan Papia" /></div>
-    <div class="footer-email"><a href="mailto:jonathanpapiawellness@gmail.com">jonathanpapiawellness@gmail.com</a></div>
-    <div class="footer-copy">© 2026 Jonathan Papia. All rights reserved.</div>
-  </footer>
-
-</body>
-</html>
+    <div class="footer-email"><a href="/cdn-cgi/l/email-protection#22484d4c43564a434c5243524b4355474e4e4c47515162454f434b4e0c414d4f"><span class="__cf_email__" data-cfemail="244e4b4a45504c454a5445544d45534148484a415757644349454d48
