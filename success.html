@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank You | Jonathan Papia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&family=Cinzel:wght@400&family=Raleway:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --black: #080808; --teal: #4ecdc4; --teal-glow: rgba(78,205,196,0.1); --white: #f0ede8; --muted: #888880; --border: rgba(78,205,196,0.2); }
+    body { background: var(--black); color: var(--white); font-family: 'Raleway', sans-serif; font-weight: 300; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 2rem; }
+    body::before { content: ''; position: fixed; inset: 0; background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(78,205,196,0.07) 0%, transparent 70%); pointer-events: none; }
+    .eyebrow { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.4em; color: var(--teal); text-transform: uppercase; margin-bottom: 2rem; opacity: 0; animation: fadeUp 1s 0.2s forwards; }
+    h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 7vw, 5rem); font-weight: 300; line-height: 1.1; margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 1s 0.4s forwards; }
+    h1 em { font-style: italic; color: var(--teal); }
+    p { font-size: 1rem; color: var(--muted); line-height: 1.8; max-width: 420px; margin-bottom: 3rem; opacity: 0; animation: fadeUp 1s 0.6s forwards; }
+    .divider { width: 1px; height: 60px; background: linear-gradient(to bottom, var(--teal), transparent); margin: 0 auto 3rem; opacity: 0; animation: fadeUp 1s 0.5s forwards; }
+    a.back { font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--black); background: var(--teal); padding: 0.9rem 2rem; text-decoration: none; transition: all 0.3s; opacity: 0; animation: fadeUp 1s 0.8s forwards; display: inline-block; }
+    a.back:hover { background: #3ab8b0; transform: translateY(-2px); }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  </style>
+</head>
+<body>
+  <div class="eyebrow">Message Received</div>
+  <h1>Thank You for<br /><em>Reaching Out</em></h1>
+  <div class="divider"></div>
+  <p>Jonathan will personally be in touch soon to schedule your free discovery call. Your healing journey has already begun.</p>
+  <a href="/" class="back">Return Home</a>
+</body>
+</html>
