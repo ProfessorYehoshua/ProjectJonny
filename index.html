@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jonathan Papia | Holistic Health</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel:wght@400;500&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black: #080808; --deep: #0e0e0e; --teal: #4ecdc4; --teal-dim: #2a8a84;
+      --teal-glow: rgba(78,205,196,0.12); --white: #f0ede8; --muted: #888880;
+      --border: rgba(78,205,196,0.2);
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--white); font-family: 'Raleway', sans-serif; font-weight: 300; overflow-x: hidden; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.5rem 3rem; background: linear-gradient(to bottom, rgba(8,8,8,0.95), transparent); backdrop-filter: blur(4px); }
+    .nav-logo { font-family: 'Cinzel', serif; font-size: 0.85rem; letter-spacing: 0.3em; color: var(--teal); text-transform: uppercase; }
+    .nav-cta { font-family: 'Raleway', sans-serif; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--teal); border: 1px solid var(--border); padding: 0.6rem 1.4rem; text-decoration: none; transition: all 0.3s; }
+    .nav-cta:hover { background: var(--teal-glow); border-color: var(--teal); }
+    .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 8rem 2rem 4rem; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 60% at 50% 40%, rgba(78,205,196,0.07) 0%, transparent 70%); pointer-events: none; }
+    .hero-eyebrow { font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.4em; color: var(--teal); text-transform: uppercase; margin-bottom: 2rem; opacity: 0; animation: fadeUp 1s 0.2s forwards; }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 8vw, 6.5rem); font-weight: 300; line-height: 1.05; margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 1s 0.4s forwards; }
+    .hero h1 em { font-style: italic; color: var(--teal); }
+    .hero-sub { font-size: 1rem; font-weight: 300; color: var(--muted); letter-spacing: 0.05em; max-width: 480px; line-height: 1.8; margin-bottom: 3rem; opacity: 0; animation: fadeUp 1s 0.6s forwards; }
+    .hero-btn { display: inline-block; font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--black); background: var(--teal); padding: 1rem 2.5rem; text-decoration: none; transition: all 0.3s; opacity: 0; animation: fadeUp 1s 0.8s forwards; }
+    .hero-btn:hover { background: #3ab8b0; transform: translateY(-2px); }
+    .scroll-hint { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); font-size: 0.65rem; letter-spacing: 0.3em; color: var(--muted); text-transform: uppercase; opacity: 0; animation: fadeUp 1s 1.2s forwards; }
+    .scroll-hint::after { content: ''; display: block; width: 1px; height: 40px; background: linear-gradient(to bottom, var(--teal), transparent); margin: 0.5rem auto 0; }
+    .services { padding: 8rem 2rem; max-width: 1100px; margin: 0 auto; }
+    .section-label { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.4em; color: var(--teal); text-transform: uppercase; margin-bottom: 1rem; }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 300; line-height: 1.2; margin-bottom: 4rem; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5px; background: var(--border); }
+    .service-card { background: var(--deep); padding: 3rem 2.5rem; transition: background 0.3s; position: relative; overflow: hidden; }
+    .service-card::before { content: ''; position: absolute; top: 0; left: 0; width: 2px; height: 0; background: var(--teal); transition: height 0.4s; }
+    .service-card:hover::before { height: 100%; }
+    .service-card:hover { background: #111; }
+    .service-num { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 300; color: var(--border); line-height: 1; margin-bottom: 1.5rem; }
+    .service-card h3 { font-family: 'Cinzel', serif; font-size: 0.85rem; letter-spacing: 0.2em; color: var(--teal); text-transform: uppercase; margin-bottom: 1rem; }
+    .service-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.8; }
+    .testimonial-section { padding: 8rem 2rem; background: var(--deep); text-align: center; }
+    .testimonial-grid { max-width: 1000px; margin: 3rem auto 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+    .testimonial-card { border: 1px solid var(--border); padding: 2.5rem; text-align: left; position: relative; }
+    .testimonial-card::before { content: '"'; font-family: 'Cormorant Garamond', serif; font-size: 5rem; color: var(--teal); opacity: 0.3; position: absolute; top: 0.5rem; left: 1.5rem; line-height: 1; }
+    .testimonial-card p { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic; line-height: 1.7; color: var(--white); margin-bottom: 1.5rem; padding-top: 1.5rem; }
+    .testimonial-card .author { font-size: 0.7rem; letter-spacing: 0.2em; color: var(--teal); text-transform: uppercase; font-family: 'Raleway', sans-serif; font-style: normal; }
+    .form-section { padding: 8rem 2rem; max-width: 700px; margin: 0 auto; }
+    .form-intro { color: var(--muted); line-height: 1.8; margin-bottom: 3rem; font-size: 0.95rem; }
+    form { display: flex; flex-direction: column; gap: 1.5rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .field { display: flex; flex-direction: column; gap: 0.5rem; }
+    label { font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--teal); font-family: 'Cinzel', serif; }
+    input, select, textarea { background: transparent; border: none; border-bottom: 1px solid var(--border); color: var(--white); font-family: 'Raleway', sans-serif; font-size: 0.95rem; font-weight: 300; padding: 0.75rem 0; outline: none; transition: border-color 0.3s; width: 100%; }
+    input:focus, select:focus, textarea:focus { border-bottom-color: var(--teal); }
+    select option { background: var(--deep); color: var(--white); }
+    textarea { resize: vertical; min-height: 100px; }
+    .submit-btn { font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--black); background: var(--teal); border: none; padding: 1.1rem 2.5rem; cursor: pointer; transition: all 0.3s; align-self: flex-start; margin-top: 1rem; }
+    .submit-btn:hover { background: #3ab8b0; transform: translateY(-2px); }
+    footer { border-top: 1px solid var(--border); padding: 3rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-logo { font-family: 'Cinzel', serif; font-size: 0.8rem; letter-spacing: 0.3em; color: var(--teal); }
+    .footer-copy { font-size: 0.7rem; color: var(--muted); letter-spacing: 0.1em; }
+    .footer-email a { font-size: 0.8rem; color: var(--muted); text-decoration: none; transition: color 0.3s; }
+    .footer-email a:hover { color: var(--teal); }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 640px) { nav { padding: 1.2rem 1.5rem; } .form-row { grid-template-columns: 1fr; } footer { flex-direction: column; text-align: center; } .submit-btn { align-self: stretch; text-align: center; } }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-logo">Jonathan Papia</div>
+    <a href="#connect" class="nav-cta">Begin Your Journey</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-eyebrow">Holistic Health &amp; Ancestral Medicine</div>
+    <h1>You Are<br /><em>The Medicine</em></h1>
+    <p class="hero-sub">Sacred Kambo ceremonies, conscious Breathwork journeys, and Integration Coaching — guided by 10 years of ancestral wisdom and lived healing.</p>
+    <a href="#connect" class="hero-btn">Book a Free Discovery Call</a>
+    <div class="scroll-hint">Explore</div>
+  </section>
+
+  <section class="services">
+    <div class="section-label">What I Offer</div>
+    <h2 class="section-title">Three Pathways<br />to Transformation</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-num">01</div>
+        <h3>Kambo Ceremonies</h3>
+        <p>A powerful Amazonian medicine for deep physical, emotional, and energetic cleansing. Private &amp; group sessions available. From $200/person.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">02</div>
+        <h3>Breathwork Journeys</h3>
+        <p>Transformative guided breathing practices to unlock clarity, peace, and emotional freedom. In-person and online. From $40/person.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">03</div>
+        <h3>Integration &amp; Coaching</h3>
+        <p>Compassionate support to ground your healing and embody lasting transformation. Online 60-min sessions — $150.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonial-section">
+    <div class="section-label">Testimonials</div>
+    <h2 class="section-title" style="max-width:600px; margin: 0 auto 1rem;">Real Stories of<br /><em style="font-family:'Cormorant Garamond',serif; font-style:italic;">Healing &amp; Transformation</em></h2>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <p>I connected with a deeper part of myself, a part I had forgotten about for who knows how long. The space Jonathan held was truly beautiful.</p>
+        <span class="author">— Sherri</span>
+      </div>
+      <div class="testimonial-card">
+        <p>This has allowed me to touch genuine happiness for arguably one of the first times in my life, with an open-eyed optimism I have never known.</p>
+        <span class="author">— A dear friend</span>
+      </div>
+      <div class="testimonial-card">
+        <p>Just one session will change your life. I felt a distinct difference in my energy and spirit after. I cannot recommend enough.</p>
+        <span class="author">— Jacquline D.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="form-section" id="connect">
+    <div class="section-label">Begin Here</div>
+    <h2 class="section-title">Your Healing Journey<br />Starts with a Conversation</h2>
+    <p class="form-intro">Fill out the form below and Jonathan will personally reach out to schedule a free 15–20 minute discovery call. No pressure — just a conversation about what's calling you forward.</p>
+
+    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="contact" />
+      <input type="hidden" name="bot-field" />
+      <div class="form-row">
+        <div class="field">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" required placeholder="Your name" />
+        </div>
+        <div class="field">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required placeholder="you@email.com" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label for="phone">Phone (optional)</label>
+          <input type="tel" id="phone" name="phone" placeholder="+1 (000) 000-0000" />
+        </div>
+        <div class="field">
+          <label for="service">I'm Interested In</label>
+          <select id="service" name="service" required>
+            <option value="" disabled selected>Select a service</option>
+            <option value="kambo">Kambo Ceremony</option>
+            <option value="breathwork">Breathwork Journey</option>
+            <option value="coaching">Integration & Coaching</option>
+            <option value="unsure">Not sure yet — open to guidance</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label for="message">What are you seeking to heal or release?</label>
+        <textarea id="message" name="message" placeholder="Share as much or as little as you'd like..."></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Send My Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <div class="footer-logo">Jonathan Papia · Holistic Health</div>
+    <div class="footer-email"><a href="mailto:jonathanpapiawellness@gmail.com">jonathanpapiawellness@gmail.com</a></div>
+    <div class="footer-copy">© 2025 Jonathan Papia. All rights reserved.</div>
+  </footer>
+</body>
+</html>
